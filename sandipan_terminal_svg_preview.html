@@ -1,0 +1,97 @@
+
+<style>
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.cursor{animation:blink 1s step-end infinite}
+.line{opacity:0}
+.line.show{animation:fadein 0.01s forwards}
+</style>
+
+<div style="background:#0d1117;border-radius:10px;border:0.5px solid #30363d;overflow:hidden;font-family:monospace;max-width:680px;margin:0 auto">
+
+  <div style="background:#161b22;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:0.5px solid #30363d">
+    <div style="width:12px;height:12px;border-radius:50%;background:#ff5f57"></div>
+    <div style="width:12px;height:12px;border-radius:50%;background:#febc2e"></div>
+    <div style="width:12px;height:12px;border-radius:50%;background:#28c840"></div>
+    <span style="color:#8b949e;font-size:12px;margin-left:8px;font-family:monospace">sandipan@backend-engineer: ~/profile</span>
+  </div>
+
+  <div style="padding:20px 22px;line-height:1.75;font-size:13px" id="terminal-body">
+
+    <div style="color:#8b949e;margin-bottom:4px">
+      <span style="color:#57ab5a">sandipan</span><span style="color:#8b949e">@</span><span style="color:#79c0ff">backend-engineer</span><span style="color:#8b949e">:~$</span>
+      <span style="color:#e6edf3"> python3 profile.py</span>
+    </div>
+
+    <div style="color:#8b949e;font-size:11px;margin-bottom:12px;opacity:0.7">Executing profile.py ...</div>
+
+    <div id="code-output" style="color:#e6edf3"></div>
+
+    <div style="margin-top:6px">
+      <span style="color:#57ab5a">sandipan</span><span style="color:#8b949e">@</span><span style="color:#79c0ff">backend-engineer</span><span style="color:#8b949e">:~$</span>
+      <span id="cursor-line" style="color:#e6edf3"> <span class="cursor" style="color:#57ab5a">|</span></span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const C = {
+  key:    '#79c0ff',
+  str:    '#a5d6ff',
+  val:    '#ffa657',
+  num:    '#79c0ff',
+  punc:   '#8b949e',
+  green:  '#57ab5a',
+  pink:   '#f778ba',
+  gray:   '#8b949e',
+  white:  '#e6edf3',
+  comment:'#6e7681',
+};
+
+function span(text, color){ return `<span style="color:${color}">${text}</span>`; }
+
+const lines = [
+  span('profile', C.white) + span(' = {', C.punc),
+  `    ${span('"name"', C.key)}${span(':', C.punc)}          ${span('"Sandipan Chakraborty"', C.str)}${span(',', C.punc)}`,
+  `    ${span('"role"', C.key)}${span(':', C.punc)}          ${span('"Backend Engineer · AI & LLM Systems"', C.str)}${span(',', C.punc)}`,
+  `    ${span('"location"', C.key)}${span(':', C.punc)}      ${span('"Kolkata, India"', C.str)}${span(',', C.punc)}`,
+  `    ${span('"company"', C.key)}${span(':', C.punc)}       ${span('"IndiiServe Solutions Pvt. Ltd."', C.str)}${span(',', C.punc)}`,
+  ``,
+  `    ${span('"currently_building"', C.key)}${span(': [', C.punc)}`,
+  `        ${span('"Real-time Voice AI"', C.str)}${span(',', C.punc)}   ${span('# FastAPI + WebSockets + AWS Bedrock', C.comment)}`,
+  `        ${span('"OIE Async Pipeline"', C.str)}${span(',', C.punc)}   ${span('# 1K–3K signals/day → scalable to 10K+', C.comment)}`,
+  `        ${span('"INDIIMED Healthcare"', C.str)}${span(',', C.punc)}  ${span('# OCR + LLM data extraction', C.comment)}`,
+  `    ${span(']', C.punc)}${span(',', C.punc)}`,
+  ``,
+  `    ${span('"metrics"', C.key)}${span(': {', C.punc)}`,
+  `        ${span('"latency"', C.key)}${span(':', C.punc)}     ${span('"~120–180ms (p95 < 250ms)"', C.str)}${span(',', C.punc)}`,
+  `        ${span('"throughput"', C.key)}${span(':', C.punc)}  ${span('"1K–3K events/day"', C.str)}${span(',', C.punc)}`,
+  `        ${span('"graph_nodes"', C.key)}${span(':', C.punc)} ${span('"8,500+ nodes · 43,000+ edges"', C.str)}${span(',', C.punc)}`,
+  `    ${span('}', C.punc)}${span(',', C.punc)}`,
+  ``,
+  `    ${span('"stack"', C.key)}${span(': [', C.punc)}`,
+  `        ${span('"Python"', C.str)}${span(', ', C.punc)}${span('"FastAPI"', C.str)}${span(', ', C.punc)}${span('"AWS Bedrock"', C.str)}${span(',', C.punc)}`,
+  `        ${span('"Redis"', C.str)}${span(', ', C.punc)}${span('"FAISS"', C.str)}${span(', ', C.punc)}${span('"Neo4j"', C.str)}${span(', ', C.punc)}${span('"Docker"', C.str)}${span(',', C.punc)}`,
+  `    ${span(']', C.punc)}${span(',', C.punc)}`,
+  ``,
+  `    ${span('"open_to"', C.key)}${span(': [', C.punc)}${span('"Full-time"', C.str)}${span(', ', C.punc)}${span('"Freelance"', C.str)}${span(', ', C.punc)}${span('"Collaborations"', C.str)}${span('],', C.punc)}`,
+  `    ${span('"contact"', C.key)}${span(':', C.punc)}       ${span('"chakrabortysandipan133@gmail.com"', C.str)}${span(',', C.punc)}`,
+  span('}', C.punc),
+];
+
+const out = document.getElementById('code-output');
+let i = 0;
+function nextLine(){
+  if(i >= lines.length) return;
+  const div = document.createElement('div');
+  div.innerHTML = lines[i] === '' ? '&nbsp;' : lines[i];
+  div.style.cssText = 'min-height:1.75em;opacity:0;transition:opacity 0.05s';
+  out.appendChild(div);
+  setTimeout(()=>{ div.style.opacity='1'; }, 20);
+  i++;
+  const delay = lines[i-1] === '' ? 60 : 38;
+  setTimeout(nextLine, delay);
+}
+setTimeout(nextLine, 400);
+</script>
