@@ -19,8 +19,9 @@
 
 <!-- TERMINAL SVG — upload terminal-intro.svg to this repo first -->
 <div align="center">
-  <img src="https://raw.githubusercontent.com/sid0803/sid0803/main/terminal-intro.svg"
-       alt="Sandipan Chakraborty terminal intro" width="680"/>
+  <img src="https://raw.githubusercontent.com/sid0803/sid0803/main/terminal-intro.png"
+       alt="Sandipan terminal intro"
+       width="720"/>
 </div>
 
 ---
