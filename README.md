@@ -3,7 +3,7 @@
 ════════════════════════════════════════════════════════════════ -->
 <div align="center">
 
-[![Header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Sandipan%20Chakraborty&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Backend%20Engineer%20%E2%80%A2%20AI%20%26%20LLM%20Systems%20%E2%80%A2%20Distributed%20Architecture&descSize=18&descColor=a0b4d6&descAlignY=58&animation=twinkling)](https://github.com/sid0803)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Sandipan%20Chakraborty&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Backend%20Engineer%20•%20AI%20%26%20LLM%20Systems&descSize=18&descColor=a0b4d6&descAlignY=58&animation=twinkling"/>
 
 [![Profile Views](https://komarev.com/ghpvc/?username=sid0803&label=Profile+Views&color=1d4ed8&style=flat-square)](https://github.com/sid0803)
 &nbsp;
