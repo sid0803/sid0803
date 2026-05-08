@@ -164,7 +164,7 @@ life_philosophy: "Scale with precision. Solve with intent."
   </a>
   &nbsp;
   <a href="https://github.com/sid0803">
-    <img height="195em" src="https://github-readme-streak-stats.herokuapp.com/?user=sid0803&theme=tokyonight&hide_border=true&background=0d1117&stroke=c481ff&ring=764ba2&fire=f093fb&currStreakNum=c9d1d9&sideNums=c9d1d9&sideLabels=c9d1d9&dates=c9d1d9" alt="GitHub Streak"/>
+    <img height="195em" src="https://streak-stats.demolab.com/?user=sid0803&theme=tokyonight&hide_border=true&background=0d1117&stroke=c481ff&ring=764ba2&fire=f093fb&currStreakNum=c9d1d9&sideNums=c9d1d9&sideLabels=c9d1d9&dates=c9d1d9" alt="GitHub Streak"/>
   </a>
   
   <br/><br/>
@@ -181,6 +181,14 @@ life_philosophy: "Scale with precision. Solve with intent."
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=sid0803&bg_color=0d1117&color=667eea&line=764ba2&point=c9d1d9&area=true&area_color=667eea&hide_border=true&custom_title=📈%20Contribution%20Activity" width="95%" alt="Activity Graph"/>
   </a>
   
+</div>
+
+<br/>
+
+<!-- PAC-MAN SECTION -->
+<div align="center">
+  <img src="./assets/pacman-dark.svg" width="100%" alt="Pac-Man"/>
+  <p>👾 Pac-Man eating my contributions!</p>
 </div>
 
 <br/>
